@@ -7,8 +7,8 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
-  title: "Next.js SignUp Page | Opal - Next.js Dashboard Template",
-  description: "This is Next.js SignUp Page Opal Dashboard Template",
+  title: "Opal SignUp Page",
+  description: "SignUp | Opal | Automate Your Agency's Customer Contracts",
   // other metadata
 };
 

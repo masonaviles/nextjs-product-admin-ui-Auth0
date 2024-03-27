@@ -4,9 +4,9 @@ import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Next.js Chart | Opal - Next.js Dashboard Template",
+  title: "Opal Chart | Opal - Opal Dashboard Template",
   description:
-    "This is Next.js Chart page for Opal - Next.js Tailwind CSS Admin Dashboard Template",
+    "This is Opal Chart page for Opal - Opal Tailwind CSS Admin Dashboard Template",
 };
 
 const BasicChartPage: React.FC = () => {

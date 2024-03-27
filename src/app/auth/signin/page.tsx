@@ -6,8 +6,8 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
-  title: "Next.js SignIn Page | Opal - Next.js Dashboard Template",
-  description: "This is Next.js Signin Page Opal Dashboard Template",
+  title: "Opal SignIn Page",
+  description: "SignIn | Opal | Automate Your Agency's Customer Contracts",
 };
 
 const SignIn: React.FC = () => {

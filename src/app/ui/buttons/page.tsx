@@ -4,9 +4,9 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
-  title: "Next.js Buttons | Opal - Next.js Dashboard Template",
+  title: "Opal Buttons | Opal - Opal Dashboard Template",
   description:
-    "This is Next.js Buttons page for Opal - Next.js Tailwind CSS Admin Dashboard Template",
+    "This is Opal Buttons page for Opal - Opal Tailwind CSS Admin Dashboard Template",
 };
 
 const Buttons = () => {

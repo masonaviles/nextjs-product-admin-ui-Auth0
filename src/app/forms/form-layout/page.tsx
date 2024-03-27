@@ -6,9 +6,9 @@ import SelectGroupOne from "@/components/SelectGroup/SelectGroupOne";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Next.js Form Layout | Opal - Next.js Dashboard Template",
+  title: "Opal Form Layout | Opal - Opal Dashboard Template",
   description:
-    "This is Next.js Form Layout page for Opal - Next.js Tailwind CSS Admin Dashboard Template",
+    "This is Opal Form Layout page for Opal - Opal Tailwind CSS Admin Dashboard Template",
 };
 
 const FormLayout = () => {

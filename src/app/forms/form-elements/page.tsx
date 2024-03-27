@@ -4,9 +4,9 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
-  title: "Next.js Form Elements | Opal - Next.js Dashboard Template",
+  title: "Opal Form Elements | Opal - Opal Dashboard Template",
   description:
-    "This is Next.js Form Elements page for Opal - Next.js Tailwind CSS Admin Dashboard Template",
+    "This is Opal Form Elements page for Opal - Opal Tailwind CSS Admin Dashboard Template",
 };
 
 const FormElementsPage = () => {

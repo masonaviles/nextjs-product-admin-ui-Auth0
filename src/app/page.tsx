@@ -5,8 +5,8 @@ import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 export const metadata: Metadata = {
   title:
-    "Next.js E-commerce Dashboard | Opal - Next.js Dashboard Template",
-  description: "This is Next.js Home for Opal Dashboard Template",
+    "Opal | Automate Your Agency's Customer Contracts",
+  description: "Opal | Automate Your Agency's Customer Contracts",
 };
 
 export default function Home() {
