@@ -1,0 +1,11 @@
+/* styles.css */
+.header-title {
+    color: #4A90E2; /* A nice shade of blue */
+    font-size: 2.5rem; /* 40px if the base size is 16px */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Slight shadow for depth */
+    letter-spacing: 1.5px; /* Spacing out letters for readability */
+}
