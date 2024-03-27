@@ -4,7 +4,8 @@ import Image from "next/image";
 const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",
-    name: "Google",
+    name: "Contract 1",
+    type: "Type 1",
     visitors: 3.5,
     revenues: "5,768",
     sales: 590,
@@ -12,7 +13,8 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-02.svg",
-    name: "Twitter",
+    name: "Contract 2",
+    type: "Type 2",
     visitors: 2.2,
     revenues: "4,635",
     sales: 467,
@@ -20,7 +22,8 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-03.svg",
-    name: "Github",
+    name: "Contract 3",
+    type: "Type 3",
     visitors: 2.1,
     revenues: "4,290",
     sales: 420,
@@ -28,7 +31,8 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-04.svg",
-    name: "Vimeo",
+    name: "Contract 4",
+    type: "Type 4",
     visitors: 1.5,
     revenues: "3,580",
     sales: 389,
@@ -36,13 +40,57 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-05.svg",
-    name: "Facebook",
+    name: "Contract 5",
+    type: "Type 5",
     visitors: 3.5,
     revenues: "6,768",
     sales: 390,
     conversion: 4.2,
   },
 ];
+
+// const brandData: BRAND[] = [
+//   {
+//     logo: "/images/brand/brand-01.svg",
+//     name: "Google",
+//     visitors: 3.5,
+//     revenues: "5,768",
+//     sales: 590,
+//     conversion: 4.8,
+//   },
+//   {
+//     logo: "/images/brand/brand-02.svg",
+//     name: "Twitter",
+//     visitors: 2.2,
+//     revenues: "4,635",
+//     sales: 467,
+//     conversion: 4.3,
+//   },
+//   {
+//     logo: "/images/brand/brand-03.svg",
+//     name: "Github",
+//     visitors: 2.1,
+//     revenues: "4,290",
+//     sales: 420,
+//     conversion: 3.7,
+//   },
+//   {
+//     logo: "/images/brand/brand-04.svg",
+//     name: "Vimeo",
+//     visitors: 1.5,
+//     revenues: "3,580",
+//     sales: 389,
+//     conversion: 2.5,
+//   },
+//   {
+//     logo: "/images/brand/brand-05.svg",
+//     name: "Facebook",
+//     visitors: 3.5,
+//     revenues: "6,768",
+//     sales: 390,
+//     conversion: 4.2,
+//   },
+// ];
 
 const TableOne = () => {
   return (

@@ -5,7 +5,8 @@ import DropdownDefault from "../Dropdowns/DropdownDefault";
 const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",
-    name: "Google",
+    name: "Contract 1",
+    type: "Type 1",
     visitors: 3.5,
     revenues: "5,768",
     sales: 590,
@@ -13,15 +14,17 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-02.svg",
-    name: "Twitter",
+    name: "Contract 2",
+    type: "Type 2",
     visitors: 2.2,
     revenues: "4,635",
     sales: 467,
     conversion: 4.3,
   },
   {
-    logo: "/images/brand/brand-06.svg",
-    name: "Youtube",
+    logo: "/images/brand/brand-03.svg",
+    name: "Contract 3",
+    type: "Type 3",
     visitors: 2.1,
     revenues: "4,290",
     sales: 420,
@@ -29,7 +32,8 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-04.svg",
-    name: "Vimeo",
+    name: "Contract 4",
+    type: "Type 4",
     visitors: 1.5,
     revenues: "3,580",
     sales: 389,
@@ -37,7 +41,8 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-05.svg",
-    name: "Facebook",
+    name: "Contract 5",
+    type: "Type 5",
     visitors: 3.5,
     revenues: "6,768",
     sales: 390,
