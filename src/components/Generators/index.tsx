@@ -1,6 +1,7 @@
 "use client";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import ContractForm from "@/components/Generators/ContractForm";
+import ContractFormSteps from "@/components/Generators/ContractFormSteps";
 import CheckboxFive from "@/components/Checkboxes/CheckboxFive";
 import CheckboxFour from "@/components/Checkboxes/CheckboxFour";
 import CheckboxOne from "@/components/Checkboxes/CheckboxOne";
@@ -23,7 +24,8 @@ const Generators = () => {
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
         <div className="flex flex-col gap-9">
 
-          <ContractForm />
+          {/* <ContractForm /> */}
+          <ContractFormSteps />
         </div>
       </div>
 
