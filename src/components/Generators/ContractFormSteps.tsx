@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const ContractFormSteps: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({ /* initial form data */ });
+  const [formData, setFormData] = useState({});
 
   const nextStep = () => setCurrentStep(currentStep + 1);
   const prevStep = () => setCurrentStep(currentStep - 1);
@@ -16,31 +16,24 @@ const ContractFormSteps: React.FC = () => {
     // Handle form submission
   };
 
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return <Step1 onNext={nextStep} formData={formData} setFormData={setFormData} />;
-      case 2:
-        return <Step2 onNext={nextStep} onBack={prevStep} formData={formData} setFormData={setFormData} />;
-      case 3:
-        return <Step3 onBack={prevStep} onSubmit={handleSubmit} formData={formData} />;
-      default:
-        return null;
-    }
-  };
+  const stepComponents = [
+    <Step1 key="step1" onNext={nextStep} formData={formData} setFormData={setFormData} />,
+    <Step2 key="step2" onNext={nextStep} onBack={prevStep} formData={formData} setFormData={setFormData} />,
+    <Step3 key="step3" onBack={prevStep} onSubmit={handleSubmit} formData={formData} />
+  ];
 
   return (
     <div>
       <ProgressBar currentStep={currentStep} totalSteps={3} />
-      <AnimatePresence>
+      <AnimatePresence mode='wait'>
         <motion.div
           key={currentStep}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
+          exit={{ opacity: 0, x: 100 }}
           transition={{ duration: 0.5 }}
         >
-          {renderStep()}
+          {stepComponents[currentStep - 1]}
         </motion.div>
       </AnimatePresence>
     </div>
