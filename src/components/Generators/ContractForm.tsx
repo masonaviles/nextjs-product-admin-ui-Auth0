@@ -19,7 +19,7 @@ const ContractForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Constructing formData object with all form fields
+    // formData object with all form fields
     const formData = {
       sendDate,
       clientName,
