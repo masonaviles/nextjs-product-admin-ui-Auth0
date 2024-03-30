@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Step1 from './ContractFormSteps/Step1';
 import Step2 from './ContractFormSteps/Step2';
 import Step3 from './ContractFormSteps/Step3';
+import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const ContractFormSteps: React.FC = () => {
@@ -29,17 +30,20 @@ const ContractFormSteps: React.FC = () => {
   };
 
   return (
-    <AnimatePresence>
-      <motion.div
-        key={currentStep}
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -50 }}
-        transition={{ duration: 0.5 }}
-      >
-        {renderStep()}
-      </motion.div>
-    </AnimatePresence>
+    <div>
+      <ProgressBar currentStep={currentStep} totalSteps={3} />
+      <AnimatePresence>
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+        >
+          {renderStep()}
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 };
 
