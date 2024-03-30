@@ -3,7 +3,7 @@ import React from 'react';
 const Step1 = ({ onNext, formData, setFormData }) => {
   return (
     <div>
-      {/* Your form fields for step 1 */}
+      <p>Form fields 1</p>
       <button onClick={onNext}>Next</button>
     </div>
   );
