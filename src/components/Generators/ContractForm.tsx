@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
 
+import StartDate from './ContractFormFields/StartDate';
+import TermsAgree from './ContractFormFields/TermsAgree';
+import WorkDelivered from './ContractFormFields/WorkDelivered';
+import ClientName from './ContractFormFields/ClientName';
+import BusinessType from './ContractFormFields/BusinessType';
+import PriceOfServices from './ContractFormFields/PriceOfServices';
+import ClientAddress from './ContractFormFields/ClientAddress';
+import ClientSignatoryName from './ContractFormFields/ClientSignatoryName';
+import ClientSignatoryRole from './ContractFormFields/ClientSignatoryRole';
+import Currency from './ContractFormFields/Currency';
+import EndDate from './ContractFormFields/EndDate';
+import PaymentFrequency from './ContractFormFields/PaymentFrequency';
+import ScopeOfWork from './ContractFormFields/ScopeOfWork';
+import SendDate from './ContractFormFields/SendDate';
+import SubmitButton from './ContractFormFields/SubmitButton';
+
 const ContractForm: React.FC = () => {
   // Initializing state for each form field
   const [sendDate, setSendDate] = useState('');
@@ -41,16 +57,34 @@ const ContractForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="relative w-full h-full ">
+      <form>
+        <ClientName value={clientName} onChange={e => setClientName(e.target.value)}/>
+        <ClientAddress value={clientAddress} onChange={e => setClientAddress(e.target.value)} />
+        <ClientSignatoryName value={clientSignatoryName} onChange={e => setClientSignatoryName(e.target.value)} />
+        <ClientSignatoryRole value={clientSignatoryRole} onChange={e => setClientSignatoryRole(e.target.value)} />
+        <BusinessType value={businessType} onChange={e => setBusinessType(e.target.value)} />
+        <PriceOfServices value={priceOfServices} onChange={e => setPriceOfServices(e.target.value)} />
+        <Currency value={currency} onChange={e => setCurrency(e.target.value)} />
+        <StartDate value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+        <EndDate value={endDate} onChange={e => setEndDate(e.target.value)} />
+        <ScopeOfWork value={scopeOfWork} onChange={e => setScopeOfWork(e.target.value)} />
+        <SendDate value={sendDate} onChange={e => setSendDate(e.target.value)} />
+        <PaymentFrequency value={paymentFrequency} onChange={e => setPaymentFrequency(e.target.value)} />
+        <WorkDelivered value={workDelivered} onChange={(e) => setWorkDelivered(e.target.value)} />
+        <TermsAgree checked={termsAgree} onChange={(e) => setTermsAgree(e.target.checked)} />
+        <SubmitButton value="Create Contract" />
+      </form>
+    <form onSubmit={handleSubmit} className="relative text-left text-4xl">
       {/* Form fields */}
       <div className="form-group">
         <label htmlFor="send_date" className="block text-sm font-medium text-gray-700">Date You'll Be Sending This Contract</label>
-        <input type="date" id="send_date" name="send_date" value={sendDate} onChange={e => setSendDate(e.target.value)} required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+        <input type="date" id="send_date" name="send_date" value={sendDate} onChange={e => setSendDate(e.target.value)} required className="block w-full border-none border-b-2 border-gray-800 bg-transparent text-yellow-100 text-3xl font-bold" />
       </div>
 
       <div className="form-group">
         <label htmlFor="client_name" className="block text-sm font-medium text-gray-700">Client Name</label>
-        <input type="text" id="client_name" name="client_name" value={clientName} onChange={e => setClientName(e.target.value)} required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+        <input type="text" id="client_name" name="client_name" value={clientName} onChange={e => setClientName(e.target.value)} required className="block w-full border-none border-b-2 border-gray-800 bg-transparent text-yellow-100 text-3xl font-bold" />
       </div>
 
       <div className="form-group">
@@ -114,6 +148,7 @@ const ContractForm: React.FC = () => {
         <input type="submit" value="Create Contract" className="mt-2 px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" />
       </div>
     </form>
+    </div>
   );
 };
 export default ContractForm;
