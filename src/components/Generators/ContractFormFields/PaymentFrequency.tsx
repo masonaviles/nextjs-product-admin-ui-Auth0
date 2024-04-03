@@ -16,7 +16,7 @@ const PaymentFrequency: React.FC<PaymentFrequencyProps> = ({ value, onChange }) 
         name="payment_frequency"
         value={value}
         onChange={onChange}
-        required
+        
         className={inputClass}
       />
     </div>

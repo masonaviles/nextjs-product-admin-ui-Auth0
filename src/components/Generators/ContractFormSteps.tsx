@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Step1 from './ContractFormSteps/Step1';
 import Step2 from './ContractFormSteps/Step2';
 import Step3 from './ContractFormSteps/Step3';
+import Step4 from './ContractFormSteps/Step4';
+import Step5 from './ContractFormSteps/Step5';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import { submitButtonClass } from './ContractFormFields/vars';
@@ -48,18 +50,20 @@ const ContractFormSteps: React.FC = () => {
   const stepComponents = [
     <Step1 key="step1" onNext={nextStep} updateFormData={updateFormData} />,
     <Step2 key="step2" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
-    <Step3 key="step3" onBack={prevStep} onSubmit={handleSubmit} updateFormData={updateFormData} />
+    <Step3 key="step3" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
+    <Step4 key="step4" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
+    <Step5 key="step5" onBack={prevStep} onSubmit={handleSubmit} updateFormData={updateFormData} />
   ];
 
   // Ensure the submit button is only shown on the last step and triggers handleSubmit
   const renderSubmitButton = () => {
-    if (currentStep === 3) {
+    if (currentStep === stepComponents.length) {
       return (
         <button 
           type="submit" 
           className={submitButtonClass}
         >
-          Submit
+          Create Contract
         </button>
       );
     }
@@ -68,7 +72,7 @@ const ContractFormSteps: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <ProgressBar currentStep={currentStep} totalSteps={3} />
+      <ProgressBar currentStep={currentStep} totalSteps={stepComponents.length} />
       <AnimatePresence mode='wait'>
         <motion.div
           key={currentStep}
@@ -80,7 +84,9 @@ const ContractFormSteps: React.FC = () => {
           {stepComponents[currentStep - 1]}
         </motion.div>
       </AnimatePresence>
-      {renderSubmitButton()}
+      <div className="flex justify-center mt-4">
+        {renderSubmitButton()}
+      </div>
     </form>
   );
 };

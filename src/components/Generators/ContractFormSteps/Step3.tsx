@@ -1,28 +1,28 @@
-import React, { forwardRef } from 'react';
-import { buttonClass, submitButtonClass } from '../ContractFormFields/vars';
+import React, { forwardRef, useState } from 'react';
+import BackButton from '../ContractFormControls/Back';
+import NextButton from '../ContractFormControls/Next';
+import BusinessType from '../ContractFormFields/BusinessType';
+import ScopeOfWork from '../ContractFormFields/ScopeOfWork';
+import PriceOfServices from '../ContractFormFields/PriceOfServices';
+import Currency from '../ContractFormFields/Currency';
 
-const Step3 = forwardRef(({ onBack, onSubmit, formData, setFormData }, ref) => {
+const Step3 = forwardRef(({ onBack, onNext, formData, setFormData }, ref) => {
+  const [scopeOfWork, setScopeOfWork] = useState('');
+  const [businessType, setBusinessType] = useState('');
+  const [priceOfServices, setPriceOfServices] = useState('');
+  const [currency, setCurrency] = useState('');
+
   return (
     <div ref={ref}>
-      <p>Form fields 3</p>
-      {/* Example form field */}
-      <div className="form-group">
-        <label htmlFor="finalExampleInput">Final Example Input</label>
-        <input
-          type="text"
-          id="finalExampleInput"
-          value={formData.finalExampleInput || ''}
-          onChange={(e) => setFormData({ ...formData, finalExampleInput: e.target.value })}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-        />
+      <div className="flex flex-col gap-4 pb-8">
+        <BusinessType value={businessType} onChange={e => setBusinessType(e.target.value)} />
+        <ScopeOfWork value={scopeOfWork} onChange={e => setScopeOfWork(e.target.value)} />
+        <PriceOfServices value={priceOfServices} onChange={e => setPriceOfServices(e.target.value)} />
+        <Currency value={currency} onChange={e => setCurrency(e.target.value)} />
       </div>
       <div className="flex justify-between">
-        <button onClick={onBack} className={buttonClass}>
-          Back
-        </button>
-        <button onClick={onSubmit} className={submitButtonClass}>
-          Submit
-        </button>
+        <BackButton onClick={onBack} buttonText="Back" />
+        <NextButton onClick={onNext} buttonText="Next" />
       </div>
     </div>
   );

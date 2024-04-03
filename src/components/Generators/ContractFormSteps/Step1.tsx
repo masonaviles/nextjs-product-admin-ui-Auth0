@@ -1,5 +1,4 @@
 import React, { forwardRef, useState } from 'react';
-import { buttonClass, inputClass } from '../ContractFormFields/vars';
 import SendDate from '../ContractFormFields/SendDate';
 import ClientName from '../ContractFormFields/ClientName';
 import ClientAddress from '../ContractFormFields/ClientAddress';
@@ -19,7 +18,9 @@ const Step1 = forwardRef(({ onNext }, ref) => {
         <ClientName value={clientName} onChange={e => setClientName(e.target.value)}/>
         <ClientAddress value={clientAddress} onChange={e => setClientAddress(e.target.value)} />
       </div>
-      <NextButton onClick={onNext} buttonText="Next" />
+      <div className="flex justify-end">
+        <NextButton onClick={onNext} buttonText="Next" />
+      </div>
     </div>
   );
 });

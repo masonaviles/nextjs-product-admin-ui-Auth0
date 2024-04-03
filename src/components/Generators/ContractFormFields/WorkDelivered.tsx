@@ -16,7 +16,7 @@ const WorkDelivered: React.FC<WorkDeliveredProps> = ({ value, onChange }) => {
         name="work_delivered"
         value={value}
         onChange={onChange}
-        required
+        
         className={inputClass}
       />
     </div>

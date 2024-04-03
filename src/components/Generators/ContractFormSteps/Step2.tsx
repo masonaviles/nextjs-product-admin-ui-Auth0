@@ -1,5 +1,4 @@
 import React, { forwardRef, useState } from 'react';
-import { buttonClass, inputClass } from '../ContractFormFields/vars';
 import NextButton from '../ContractFormControls/Next';
 import BackButton from '../ContractFormControls/Back';
 import ClientSignatoryName from '../ContractFormFields/ClientSignatoryName';
