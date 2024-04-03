@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface SendDateProps {
   value: string;
@@ -8,7 +9,7 @@ interface SendDateProps {
 const SendDate: React.FC<SendDateProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="send_date">Send Date</label>
+      <label htmlFor="send_date" className={labelClass}>Send Date</label>
       <input
         type="date"
         id="send_date"
@@ -16,7 +17,7 @@ const SendDate: React.FC<SendDateProps> = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

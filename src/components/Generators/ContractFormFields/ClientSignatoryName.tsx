@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface ClientSignatoryNameProps {
   value: string;
@@ -8,7 +9,7 @@ interface ClientSignatoryNameProps {
 const ClientSignatoryName: React.FC<ClientSignatoryNameProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="client_signatory_name">Signatory Name</label>
+      <label htmlFor="client_signatory_name" className={labelClass}>Signatory Name</label>
       <input
         type="text"
         id="client_signatory_name"
@@ -16,7 +17,7 @@ const ClientSignatoryName: React.FC<ClientSignatoryNameProps> = ({ value, onChan
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface ClientSignatoryRoleProps {
   value: string;
@@ -8,7 +9,7 @@ interface ClientSignatoryRoleProps {
 const ClientSignatoryRole: React.FC<ClientSignatoryRoleProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="client_signatory_role">Signatory Role</label>
+      <label htmlFor="client_signatory_role" className={labelClass}>Signatory Role</label>
       <input
         type="text"
         id="client_signatory_role"
@@ -16,7 +17,7 @@ const ClientSignatoryRole: React.FC<ClientSignatoryRoleProps> = ({ value, onChan
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

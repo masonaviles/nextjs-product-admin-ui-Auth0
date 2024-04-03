@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface WorkDeliveredProps {
   value: string;
@@ -8,7 +9,7 @@ interface WorkDeliveredProps {
 const WorkDelivered: React.FC<WorkDeliveredProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="work_delivered">Work Delivered</label>
+      <label htmlFor="work_delivered" className={labelClass}>Work Delivered</label>
       <input
         type="text"
         id="work_delivered"
@@ -16,7 +17,7 @@ const WorkDelivered: React.FC<WorkDeliveredProps> = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

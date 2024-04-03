@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface PaymentFrequencyProps {
   value: string;
@@ -8,7 +9,7 @@ interface PaymentFrequencyProps {
 const PaymentFrequency: React.FC<PaymentFrequencyProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="payment_frequency">Payment Frequency</label>
+      <label htmlFor="payment_frequency" className={labelClass}>Payment Frequency</label>
       <input
         type="text"
         id="payment_frequency"
@@ -16,7 +17,7 @@ const PaymentFrequency: React.FC<PaymentFrequencyProps> = ({ value, onChange }) 
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

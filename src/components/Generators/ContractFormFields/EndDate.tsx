@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface EndDateProps {
   value: string;
@@ -8,7 +9,7 @@ interface EndDateProps {
 const EndDate: React.FC<EndDateProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="end_date">End Date</label>
+      <label htmlFor="end_date" className={labelClass}>End Date</label>
       <input
         type="date"
         id="end_date"
@@ -16,7 +17,7 @@ const EndDate: React.FC<EndDateProps> = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface BusinessTypeProps {
   value: string;
@@ -8,14 +9,14 @@ interface BusinessTypeProps {
 const BusinessType: React.FC<BusinessTypeProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="business_type">Business Type</label>
+      <label htmlFor="business_type" className={labelClass}>Business Type</label>
       <select
         id="business_type"
         name="business_type"
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       >
         <option value="">Select Business Type</option>
         <option value="small">Small Business</option>

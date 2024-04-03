@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { buttonClass, inputClass } from '../ContractFormFields/vars';
 
 const Step2 = forwardRef(({ onNext, onBack, formData, setFormData }, ref) => {
   return (
@@ -16,10 +17,10 @@ const Step2 = forwardRef(({ onNext, onBack, formData, setFormData }, ref) => {
         />
       </div>
       <div className="flex justify-between">
-        <button onClick={onBack} className="mt-4 bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">
+        <button onClick={onBack} className={buttonClass}>
           Back
         </button>
-        <button onClick={onNext} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button onClick={onNext} className={buttonClass}>
           Next
         </button>
       </div>

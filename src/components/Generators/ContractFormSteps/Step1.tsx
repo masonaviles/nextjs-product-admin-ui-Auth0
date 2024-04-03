@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
+import { buttonClass, inputClass } from '../ContractFormFields/vars';
 
 const Step1 = forwardRef(({ onNext, formData, setFormData }, ref) => {
+
   return (
     <div ref={ref}>
       <p>Form fields 1</p>
@@ -15,7 +17,7 @@ const Step1 = forwardRef(({ onNext, formData, setFormData }, ref) => {
           className="block w-full border-none border-b-2 border-gray-800 bg-transparent text-yellow-100 text-3xl font-bold border-b border-white"
         />
       </div>
-      <button onClick={onNext} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <button onClick={onNext} className={buttonClass}>
         Next
       </button>
     </div>

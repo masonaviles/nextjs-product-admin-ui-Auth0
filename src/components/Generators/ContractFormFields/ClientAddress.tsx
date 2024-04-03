@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface ClientAddressProps {
   value: string;
@@ -8,7 +9,7 @@ interface ClientAddressProps {
 const ClientAddress: React.FC<ClientAddressProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="client_address">Client Address</label>
+      <label htmlFor="client_address" className={labelClass}>Client Address</label>
       <input
         type="text"
         id="client_address"
@@ -16,7 +17,7 @@ const ClientAddress: React.FC<ClientAddressProps> = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );

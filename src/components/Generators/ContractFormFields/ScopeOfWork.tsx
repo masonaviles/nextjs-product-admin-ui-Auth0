@@ -1,4 +1,5 @@
 import React from 'react';
+import { inputClass, labelClass } from './vars';
 
 interface ScopeOfWorkProps {
   value: string;
@@ -8,7 +9,7 @@ interface ScopeOfWorkProps {
 const ScopeOfWork: React.FC<ScopeOfWorkProps> = ({ value, onChange }) => {
   return (
     <div className="form-group">
-      <label htmlFor="scope_of_work">Scope of Work</label>
+      <label htmlFor="scope_of_work" className={labelClass}>Scope of Work</label>
       <input
         type="text"
         id="scope_of_work"
@@ -16,7 +17,7 @@ const ScopeOfWork: React.FC<ScopeOfWorkProps> = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
         required
-        className="form-control"
+        className={inputClass}
       />
     </div>
   );
