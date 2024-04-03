@@ -9,7 +9,7 @@ interface NextButtonProps {
 
 const NextButton: React.FC<NextButtonProps> = ({ onClick, className, buttonText }) => {
   return (
-    <button onClick={onClick} className={buttonClass}>
+    <button type="button" onClick={onClick} className={buttonClass}>
       {buttonText}
     </button>
   );

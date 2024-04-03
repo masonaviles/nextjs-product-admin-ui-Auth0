@@ -19,28 +19,28 @@ const ContractFormSteps: React.FC = () => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // API call to submit formData
-    try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    // try {
+    //   const response = await fetch('YOUR_API_ENDPOINT', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+    //   if (!response.ok) {
+    //     throw new Error('Network response was not ok');
+    //   }
 
       // Handle successful submission here
       // For example, you could clear the form, show a success message, or redirect the user
-      console.log('Form submitted successfully');
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+      console.log('Form submitted successfully', formData);
+    // } catch (error) {
+    //   console.error('Error submitting form:', error);
+    // }
   };
 
-  const updateFormData = (newData) => {
+  const updateFormData = (newData: Record<string, any>) => {
     setFormData(prevFormData => ({
       ...prevFormData,
       ...newData
@@ -50,9 +50,9 @@ const ContractFormSteps: React.FC = () => {
   const stepComponents = [
     <Step1 key="step1" onNext={nextStep} updateFormData={updateFormData} />,
     <Step2 key="step2" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
-    <Step3 key="step3" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
-    <Step4 key="step4" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
-    <Step5 key="step5" onBack={prevStep} onSubmit={handleSubmit} updateFormData={updateFormData} />
+    <Step3 key="step3" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} formData={formData} setFormData={setFormData} />,
+    <Step4 key="step4" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} formData={formData} setFormData={setFormData} />,
+    <Step5 key="step5" onBack={prevStep} onSubmit={handleSubmit} updateFormData={updateFormData} formData={formData} setFormData={setFormData} />
   ];
 
   // Ensure the submit button is only shown on the last step and triggers handleSubmit

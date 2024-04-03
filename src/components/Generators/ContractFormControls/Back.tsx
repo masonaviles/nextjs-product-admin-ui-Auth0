@@ -9,7 +9,7 @@ interface BackButtonProps {
 
 const BackButton: React.FC<BackButtonProps> = ({ onClick, className, buttonText }) => {
   return (
-    <button onClick={onClick} className={buttonClass}>
+    <button type="button" onClick={onClick} className={buttonClass}>
       {buttonText}
     </button>
   );
