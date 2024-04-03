@@ -4,6 +4,7 @@ import Step2 from './ContractFormSteps/Step2';
 import Step3 from './ContractFormSteps/Step3';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import { AnimatePresence, motion } from 'framer-motion';
+import { submitButtonClass } from './ContractFormFields/vars';
 
 const ContractFormSteps: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -12,18 +13,61 @@ const ContractFormSteps: React.FC = () => {
   const nextStep = () => setCurrentStep(currentStep + 1);
   const prevStep = () => setCurrentStep(currentStep - 1);
 
-  const handleSubmit = () => {
-    // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    // API call to submit formData
+    try {
+      const response = await fetch('YOUR_API_ENDPOINT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // Handle successful submission here
+      // For example, you could clear the form, show a success message, or redirect the user
+      console.log('Form submitted successfully');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
+  const updateFormData = (newData) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      ...newData
+    }));
   };
 
   const stepComponents = [
-    <Step1 key="step1" onNext={nextStep} formData={formData} setFormData={setFormData} />,
-    <Step2 key="step2" onNext={nextStep} onBack={prevStep} formData={formData} setFormData={setFormData} />,
-    <Step3 key="step3" onBack={prevStep} onSubmit={handleSubmit} formData={formData} />
+    <Step1 key="step1" onNext={nextStep} updateFormData={updateFormData} />,
+    <Step2 key="step2" onNext={nextStep} onBack={prevStep} updateFormData={updateFormData} />,
+    <Step3 key="step3" onBack={prevStep} onSubmit={handleSubmit} updateFormData={updateFormData} />
   ];
 
+  // Ensure the submit button is only shown on the last step and triggers handleSubmit
+  const renderSubmitButton = () => {
+    if (currentStep === 3) {
+      return (
+        <button 
+          type="submit" 
+          className={submitButtonClass}
+        >
+          Submit
+        </button>
+      );
+    }
+    return null;
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <ProgressBar currentStep={currentStep} totalSteps={3} />
       <AnimatePresence mode='wait'>
         <motion.div
@@ -36,7 +80,8 @@ const ContractFormSteps: React.FC = () => {
           {stepComponents[currentStep - 1]}
         </motion.div>
       </AnimatePresence>
-    </div>
+      {renderSubmitButton()}
+    </form>
   );
 };
 

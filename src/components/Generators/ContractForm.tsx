@@ -59,19 +59,19 @@ const ContractForm: React.FC = () => {
   return (
     <div className="relative w-full h-full ">
       <form>
+        <SendDate value={sendDate} onChange={e => setSendDate(e.target.value)} />
         <ClientName value={clientName} onChange={e => setClientName(e.target.value)}/>
         <ClientAddress value={clientAddress} onChange={e => setClientAddress(e.target.value)} />
         <ClientSignatoryName value={clientSignatoryName} onChange={e => setClientSignatoryName(e.target.value)} />
         <ClientSignatoryRole value={clientSignatoryRole} onChange={e => setClientSignatoryRole(e.target.value)} />
         <BusinessType value={businessType} onChange={e => setBusinessType(e.target.value)} />
+        <ScopeOfWork value={scopeOfWork} onChange={e => setScopeOfWork(e.target.value)} />
         <PriceOfServices value={priceOfServices} onChange={e => setPriceOfServices(e.target.value)} />
         <Currency value={currency} onChange={e => setCurrency(e.target.value)} />
+        <WorkDelivered value={workDelivered} onChange={(e) => setWorkDelivered(e.target.value)} />
+        <PaymentFrequency value={paymentFrequency} onChange={e => setPaymentFrequency(e.target.value)} />
         <StartDate value={startDate} onChange={(e) => setStartDate(e.target.value)} />
         <EndDate value={endDate} onChange={e => setEndDate(e.target.value)} />
-        <ScopeOfWork value={scopeOfWork} onChange={e => setScopeOfWork(e.target.value)} />
-        <SendDate value={sendDate} onChange={e => setSendDate(e.target.value)} />
-        <PaymentFrequency value={paymentFrequency} onChange={e => setPaymentFrequency(e.target.value)} />
-        <WorkDelivered value={workDelivered} onChange={(e) => setWorkDelivered(e.target.value)} />
         <TermsAgree checked={termsAgree} onChange={(e) => setTermsAgree(e.target.checked)} />
         <SubmitButton value="Create Contract" />
       </form>

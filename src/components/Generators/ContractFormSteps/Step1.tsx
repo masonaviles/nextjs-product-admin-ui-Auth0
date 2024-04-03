@@ -1,25 +1,25 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { buttonClass, inputClass } from '../ContractFormFields/vars';
+import SendDate from '../ContractFormFields/SendDate';
+import ClientName from '../ContractFormFields/ClientName';
+import ClientAddress from '../ContractFormFields/ClientAddress';
+import NextButton from '../ContractFormControls/Next';
 
-const Step1 = forwardRef(({ onNext, formData, setFormData }, ref) => {
+
+const Step1 = forwardRef(({ onNext }, ref) => {
+
+  const [sendDate, setSendDate] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [clientAddress, setClientAddress] = useState('');
 
   return (
     <div ref={ref}>
-      <p>Form fields 1</p>
-      {/* Example form field */}
-      <div className="form-group">
-        <label htmlFor="exampleInput1">Example Input 1</label>
-        <input
-          type="text"
-          id="exampleInput1"
-          value={formData.exampleInput1 || ''}
-          onChange={(e) => setFormData({ ...formData, exampleInput1: e.target.value })}
-          className="block w-full border-none border-b-2 border-gray-800 bg-transparent text-yellow-100 text-3xl font-bold border-b border-white"
-        />
+      <div className="flex flex-col gap-4 pb-8">
+        <SendDate value={sendDate} onChange={e => setSendDate(e.target.value)} />
+        <ClientName value={clientName} onChange={e => setClientName(e.target.value)}/>
+        <ClientAddress value={clientAddress} onChange={e => setClientAddress(e.target.value)} />
       </div>
-      <button onClick={onNext} className={buttonClass}>
-        Next
-      </button>
+      <NextButton onClick={onNext} buttonText="Next" />
     </div>
   );
 });
