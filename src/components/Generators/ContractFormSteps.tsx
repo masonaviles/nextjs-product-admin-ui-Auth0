@@ -5,6 +5,7 @@ import Step3 from './ContractFormSteps/Step3';
 import Step4 from './ContractFormSteps/Step4';
 import Step5 from './ContractFormSteps/Step5';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
+import DotProgress from '@/components/ProgressBar/DotProgress';
 import { AnimatePresence, motion } from 'framer-motion';
 import { submitButtonClass } from './ContractFormFields/vars';
 
@@ -57,17 +58,25 @@ const ContractFormSteps: React.FC = () => {
 
   // Ensure the submit button is only shown on the last step and triggers handleSubmit
   const renderSubmitButton = () => {
-    if (currentStep === stepComponents.length) {
-      return (
-        <button 
-          type="submit" 
-          className={submitButtonClass}
-        >
-          Create Contract
-        </button>
-      );
-    }
-    return null;
+    return (
+      <AnimatePresence>
+        {currentStep === stepComponents.length && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5 }}
+          >
+            <button 
+              type="submit" 
+              className={submitButtonClass}
+            >
+              Create Contract
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    );
   };
 
   return (
@@ -87,6 +96,7 @@ const ContractFormSteps: React.FC = () => {
       <div className="flex justify-center mt-4">
         {renderSubmitButton()}
       </div>
+      <DotProgress currentStep={currentStep} totalSteps={stepComponents.length} />
     </form>
   );
 };
