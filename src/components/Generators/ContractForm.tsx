@@ -62,7 +62,6 @@ const ContractForm: React.FC = () => {
         <StartDate value={startDate} onChange={(e) => setStartDate(e.target.value)} />
         <EndDate value={endDate} onChange={e => setEndDate(e.target.value)} />
         <TermsAgree checked={termsAgree} onChange={(e) => setTermsAgree(e.target.checked)} />
-        <SubmitButton value="Create Contract" />
       </form>
     </div>
   );
