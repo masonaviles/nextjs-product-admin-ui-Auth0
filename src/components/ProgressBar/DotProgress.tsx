@@ -1,21 +1,19 @@
-import React from 'react';
-
-interface DotPaginationProps {
+interface DotProgressProps {
   currentStep: number;
   totalSteps: number;
 }
 
-const DotPagination: React.FC<DotPaginationProps> = ({ currentStep, totalSteps }) => {
+const DotProgress: React.FC<DotProgressProps> = ({ currentStep, totalSteps }) => {
   return (
-    <div className="flex justify-center space-x-2">
+    <div className="flex justify-center items-center gap-2 dot-progress">
       {Array.from({ length: totalSteps }, (_, index) => (
         <span
           key={index}
-          className={`inline-block h-3 w-3 rounded-full ${index + 1 === currentStep ? 'bg-blue-500' : 'bg-gray-300'}`}
+          className={`h-2 w-2 rounded-full ${currentStep === index + 1 ? 'bg-gray-700 dark:bg-yellow-100' : 'bg-gray-300 not-active'}`}
         ></span>
       ))}
     </div>
   );
 };
 
-export default DotPagination;
+export default DotProgress;

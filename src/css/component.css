@@ -5,6 +5,10 @@
 	width: 100%;
 }
 
+.dot-progress .not-active {
+	background-color: #3b3f45;
+}
+
 
 /* Main form wrapper */
 .fs-form-wrap {
