@@ -45,4 +45,6 @@ const Step4 = forwardRef<HTMLDivElement, Step4Props>(
     }
 );
 
+Step4.displayName = 'Step4';
+
 export default Step4;

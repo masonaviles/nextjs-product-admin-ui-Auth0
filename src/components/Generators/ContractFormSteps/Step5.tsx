@@ -50,4 +50,6 @@ const Step5 = forwardRef<HTMLDivElement, Step5Props>(({ onBack, onSubmit, update
   );
 });
 
+Step5.displayName = 'Step5';
+
 export default Step5;
