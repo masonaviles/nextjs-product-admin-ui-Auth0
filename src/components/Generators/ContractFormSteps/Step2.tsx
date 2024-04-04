@@ -11,6 +11,7 @@ interface Step2Props {
 }
 
 const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ onNext, onBack, updateFormData }, ref) => {
+
   const [clientSignatoryName, setClientSignatoryName] = useState('');
   const [clientSignatoryRole, setClientSignatoryRole] = useState('');
 
@@ -34,4 +35,7 @@ const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ onNext, onBack, updateFo
   );
 });
 
+Step2.displayName = 'Step2';
+
 export default Step2;
+
