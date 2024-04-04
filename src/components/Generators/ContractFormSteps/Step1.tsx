@@ -35,6 +35,4 @@ const Step1 = forwardRef<HTMLDivElement, Step1Props>(({ onNext, updateFormData }
   );
 });
 
-Step1.displayName = 'Step1';
-
 export default Step1;

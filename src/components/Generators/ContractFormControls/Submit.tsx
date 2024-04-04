@@ -1,5 +1,5 @@
 import React from 'react';
-import { submitButtonClass } from './vars';
+import { submitButtonClass } from '../ContractFormFields/vars';
 
 interface SubmitButtonProps {
   value: string;

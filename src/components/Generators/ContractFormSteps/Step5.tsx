@@ -3,6 +3,7 @@ import BackButton from '../ContractFormControls/Back';
 import StartDate from '../ContractFormFields/StartDate';
 import EndDate from '../ContractFormFields/EndDate';
 import TermsAgree from '../ContractFormFields/TermsAgree';
+import SubmitButton from '../ContractFormControls/Submit';
 
 interface Step5Props {
   onBack: () => void;
@@ -45,11 +46,10 @@ const Step5 = forwardRef<HTMLDivElement, Step5Props>(({ onBack, onSubmit, update
       </div>
       <div className="flex justify-between">
         <BackButton onClick={onBack} buttonText="Back" />
+        <SubmitButton onClick={onSubmit} buttonText="Submit" />
       </div>
     </div>
   );
 });
-
-Step5.displayName = 'Step5';
 
 export default Step5;

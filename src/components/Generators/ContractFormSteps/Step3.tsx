@@ -61,6 +61,4 @@ const Step3 = forwardRef<HTMLDivElement, Step3Props>(
   );
 });
 
-Step3.displayName = 'Step3';
-
 export default Step3;
