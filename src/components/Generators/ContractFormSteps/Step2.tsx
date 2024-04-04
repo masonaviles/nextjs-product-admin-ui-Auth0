@@ -35,4 +35,7 @@ const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ onNext, onBack, updateFo
   );
 });
 
+Step2.displayName = 'Step2';
+
 export default Step2;
+
