@@ -21,6 +21,34 @@ const Step3 = forwardRef<HTMLDivElement, Step3Props>(
   const [priceOfServices, setPriceOfServices] = useState('');
   const [currency, setCurrency] = useState('');
 
+  const currencySymbols = {
+    USD: '$',
+    EUR: '€',
+    GBP: '£',
+    JPY: '¥',
+    CNY: '¥',
+    INR: '₹',
+    CAD: '$',
+    AUD: '$',
+    CHF: 'CHF',
+    MXN: '$',
+    SGD: '$',
+    HKD: '$',
+    NOK: 'kr',
+    KRW: '₩',
+    TRY: '₺',
+    RUB: '₽',
+    NZD: '$',
+    SEK: 'kr',
+    PLN: 'zł',
+    THB: '฿',
+    BRL: 'R$',
+    DKK: 'kr',
+    MYR: 'RM',
+  };
+  
+  const currentCurrencySymbol = currencySymbols[currency] || '';
+
   // Generic input change handler
   const handleInputChange = (name: string, value: string) => {
     // Update local state
@@ -50,8 +78,11 @@ const Step3 = forwardRef<HTMLDivElement, Step3Props>(
       <div className="flex flex-col gap-4 pb-8">
         <BusinessType value={businessType} onChange={e => handleInputChange('businessType', e.target.value)} />
         <ScopeOfWork value={scopeOfWork} onChange={e => handleInputChange('scopeOfWork', e.target.value)} />
-        <PriceOfServices value={priceOfServices} onChange={e => handleInputChange('priceOfServices', e.target.value)} />
         <Currency value={currency} onChange={e => handleInputChange('currency', e.target.value)} />
+        <div className="flex items-center">
+          <span className="text-black dark:text-white text-3xl font-bold mr-2 self-center">{currentCurrencySymbol}</span>
+          <PriceOfServices value={priceOfServices} onChange={e => handleInputChange('priceOfServices', e.target.value)} />
+        </div>
       </div>
       <div className="flex justify-between">
         <BackButton onClick={onBack} buttonText="Back" />
