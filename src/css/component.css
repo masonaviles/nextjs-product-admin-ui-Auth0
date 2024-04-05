@@ -10,7 +10,16 @@
 }
 
 
-/* Main form wrapper */
+.formContainer {
+	width: 100%;
+}
+  
+@media (min-width: 768px) {
+	.formContainer {
+		width: 80%;
+	}
+}
+
 .fs-form-wrap {
 	position: relative;
 	width: 100%;

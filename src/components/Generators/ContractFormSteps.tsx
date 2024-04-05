@@ -59,18 +59,20 @@ const ContractFormSteps: React.FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       <ProgressBar currentStep={currentStep} totalSteps={stepComponents.length} />
-      <AnimatePresence mode='wait'>
-        <motion.div
-          key={currentStep}
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 100 }}
-          transition={{ duration: 0.5 }}
-        >
-          {stepComponents[currentStep - 1]}
-        </motion.div>
-      </AnimatePresence>
-      <DotProgress currentStep={currentStep} totalSteps={stepComponents.length} setCurrentStep={setCurrentStep} />
+      <div className='formContainer'>
+        <AnimatePresence mode='wait'>
+          <motion.div
+            key={currentStep}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.5 }}
+          >
+            {stepComponents[currentStep - 1]}
+          </motion.div>
+        </AnimatePresence>
+        <DotProgress currentStep={currentStep} totalSteps={stepComponents.length} setCurrentStep={setCurrentStep} />
+      </div>
     </form>
   );
 };
