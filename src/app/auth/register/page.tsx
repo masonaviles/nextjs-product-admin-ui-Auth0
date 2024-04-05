@@ -206,7 +206,7 @@ const SignUp: React.FC = () => {
                       </defs>
                     </svg>
                   </span>
-                  Sign up with Google
+                  Register with Google
                 </button>
 
                 <div className="mt-6 text-center">
