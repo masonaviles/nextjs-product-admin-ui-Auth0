@@ -6,6 +6,10 @@
 }
 
 .dot-progress .not-active {
+	background-color: #7f848b;
+}
+
+.dark .dot-progress .not-active {
 	background-color: #3b3f45;
 }
 

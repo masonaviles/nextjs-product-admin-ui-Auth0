@@ -21,7 +21,7 @@ const Step3 = forwardRef<HTMLDivElement, Step3Props>(
   const [priceOfServices, setPriceOfServices] = useState('');
   const [currency, setCurrency] = useState('');
 
-  const currencySymbols = {
+  const currencySymbols: Record<string, string> = {
     USD: '$',
     EUR: '€',
     GBP: '£',
