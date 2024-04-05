@@ -56,29 +56,6 @@ const ContractFormSteps: React.FC = () => {
     <Step5 key="step5" onBack={prevStep} onSubmit={handleSubmit} updateFormData={updateFormData} formData={formData} setFormData={setFormData} />
   ];
 
-  // Ensure the submit button is only shown on the last step and triggers handleSubmit
-  const renderSubmitButton = () => {
-    return (
-      <AnimatePresence>
-        {currentStep === stepComponents.length && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.5 }}
-          >
-            <button 
-              type="submit" 
-              className={submitButtonClass}
-            >
-              Create Contract
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    );
-  };
-
   return (
     <form onSubmit={handleSubmit}>
       <ProgressBar currentStep={currentStep} totalSteps={stepComponents.length} />
@@ -93,9 +70,6 @@ const ContractFormSteps: React.FC = () => {
           {stepComponents[currentStep - 1]}
         </motion.div>
       </AnimatePresence>
-      <div className="flex justify-center mt-4">
-        {renderSubmitButton()}
-      </div>
       <DotProgress currentStep={currentStep} totalSteps={stepComponents.length} setCurrentStep={setCurrentStep} />
     </form>
   );
