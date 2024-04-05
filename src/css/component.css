@@ -20,6 +20,13 @@
 	}
 }
 
+@media (min-width: 1024px) {
+	.formContainer {
+		width: 50%;
+	}
+}
+
+
 .fs-form-wrap {
 	position: relative;
 	width: 100%;
