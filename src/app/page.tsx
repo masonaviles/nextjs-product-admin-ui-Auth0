@@ -3,6 +3,7 @@ import MainDashboard from "@/components/Dashboard/MainDashboard";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
+
 export const metadata: Metadata = {
   title:
     "Opal | Automate Your Agency's Customer Contracts",
