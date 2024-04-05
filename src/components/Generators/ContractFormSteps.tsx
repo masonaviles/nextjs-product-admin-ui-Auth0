@@ -96,7 +96,7 @@ const ContractFormSteps: React.FC = () => {
       <div className="flex justify-center mt-4">
         {renderSubmitButton()}
       </div>
-      <DotProgress currentStep={currentStep} totalSteps={stepComponents.length} />
+      <DotProgress currentStep={currentStep} totalSteps={stepComponents.length} setCurrentStep={setCurrentStep} />
     </form>
   );
 };
