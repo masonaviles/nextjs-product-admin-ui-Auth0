@@ -215,6 +215,9 @@ const SignUp: React.FC = () => {
                     <Link href="/auth/signin" className="text-primary">
                       Sign in
                     </Link>
+                    <Link href="/api/auth/login" className="text-primary">
+                      Sign in Auth0
+                    </Link>
                   </p>
                 </div>
               </form>
