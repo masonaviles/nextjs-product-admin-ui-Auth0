@@ -6,7 +6,6 @@ import "@/css/style.css";
 import "@/css/component.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export default function RootLayout({
   children,
@@ -24,13 +23,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <UserProvider>
         <body suppressHydrationWarning={true}>
           <div className="dark:bg-boxdark-2 dark:text-bodydark">
             {loading ? <Loader /> : children}
           </div>
         </body>
-      </UserProvider>
     </html>
   );
 }
