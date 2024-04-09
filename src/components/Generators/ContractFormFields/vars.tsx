@@ -1,4 +1,4 @@
-export const inputClass = "my-1 form-control block w-full border-b-2 border-gray-800 bg-transparent dark:text-yellow-100 text-black text-3xl font-bold border-b border-black dark:border-white"
+export const inputClass = "focus:outline-none my-1 form-control block w-full border-b-2 border-gray-800 bg-transparent dark:text-yellow-100 text-black text-3xl font-bold border-b border-black dark:border-white"
 
 export const checkboxClass = "form-checkbox h-5 w-5 text-gray-800 dark:text-yellow-100 border-gray-800 dark:border-white bg-transparent border-2 rounded focus:ring-0 dark:focus:border-yellow-100 focus:border-gray-900"
 

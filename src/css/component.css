@@ -6,11 +6,31 @@
 }
 
 .dot-progress .not-active {
+	background-color: #7f848b;
+}
+
+.dark .dot-progress .not-active {
 	background-color: #3b3f45;
 }
 
 
-/* Main form wrapper */
+.formContainer {
+	width: 100%;
+}
+  
+@media (min-width: 768px) {
+	.formContainer {
+		width: 80%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.formContainer {
+		width: 50%;
+	}
+}
+
+
 .fs-form-wrap {
 	position: relative;
 	width: 100%;

@@ -14,7 +14,6 @@ import EndDate from './ContractFormFields/EndDate';
 import PaymentFrequency from './ContractFormFields/PaymentFrequency';
 import ScopeOfWork from './ContractFormFields/ScopeOfWork';
 import SendDate from './ContractFormFields/SendDate';
-import SubmitButton from './ContractFormControls/Submit';
 
 const ContractForm: React.FC = () => {
   // Initializing state for each form field
