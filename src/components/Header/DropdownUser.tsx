@@ -17,7 +17,6 @@ const DropdownUser = () => {
         const response = await fetch('/api/auth/me', {
           method: 'GET',
           headers: {
-            // Assuming you're using Bearer token, adjust if needed
             'Authorization': `Bearer ${user?.accessToken}`
           }
         });
@@ -73,9 +72,9 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {userData?.name || 'Mason Aviles'} {/* Use fetched name */}
+            {userData?.name || 'Username'}
           </span>
-          <span className="block text-xs">{userData?.email || 'mce.aviles@gmail.com'}</span>
+          <span className="block text-xs">{userData?.email || 'user email'}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
@@ -121,7 +120,7 @@ const DropdownUser = () => {
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
           <li>
             <Link
-              href="/api/auth/me"
+              href="/profile"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
