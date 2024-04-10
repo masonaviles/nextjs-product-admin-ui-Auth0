@@ -2,6 +2,7 @@
 import React from "react";
 import ContractsOverview from "../Tables/ContractsOverview";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import SignIn from "../Auth0/SignIn";
 
 const MainDashboard: React.FC = () => {
   const { user, isLoading } = useUser();
@@ -23,7 +24,7 @@ const MainDashboard: React.FC = () => {
     )
   }
 
-  return <a href="/api/auth/login">Please Sign In</a>;
+  return <SignIn />;
 };
 
 export default MainDashboard;
