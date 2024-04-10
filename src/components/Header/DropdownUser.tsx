@@ -5,9 +5,36 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userData, setUserData] = useState<any>(null);
   const { user } = useUser();
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
+
+  useEffect(() => {
+    // Function to fetch user data
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('/api/auth/me', {
+          method: 'GET',
+          headers: {
+            // Assuming you're using Bearer token, adjust if needed
+            'Authorization': `Bearer ${user?.accessToken}`
+          }
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+        const data = await response.json();
+        setUserData(data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    if (user) {
+      fetchUserData();
+    }
+  }, [user]);
 
   // close on click outside
   useEffect(() => {
@@ -46,23 +73,24 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Mason Aviles
+            {userData?.name || 'Mason Aviles'} {/* Use fetched name */}
           </span>
-          <span className="block text-xs">Agency Name</span>
+          <span className="block text-xs">{userData?.email || 'mce.aviles@gmail.com'}</span>
         </span>
 
-        {/* <span className="h-12 w-12 rounded-full">
+        <span className="h-12 w-12 rounded-full">
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={userData?.picture || "/images/user/user-01.png"}
+            className="rounded-full"
             style={{
               width: "auto",
               height: "auto",
             }}
             alt="User"
           />
-        </span> */}
+        </span>
 
         <svg
           className="hidden fill-current sm:block"
