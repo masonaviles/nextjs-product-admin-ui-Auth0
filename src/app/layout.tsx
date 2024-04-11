@@ -23,14 +23,14 @@ export default function RootLayout({
   }, []);
 
   return (
-    <UserProvider>
-      <html lang="en">
-          <body suppressHydrationWarning={true}>
-            <div className="dark:bg-boxdark-2 dark:text-bodydark">
-              {loading ? <Loader /> : children}
-            </div>
-          </body>
-      </html>
-    </UserProvider>
+    <html lang="en">
+      <UserProvider>
+        <body suppressHydrationWarning={true}>
+          <div className="dark:bg-boxdark-2 dark:text-bodydark">
+            {loading ? <Loader /> : children}
+          </div>
+        </body>
+      </UserProvider>
+    </html>
   );
 }
