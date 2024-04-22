@@ -1,60 +1,37 @@
-import { BRAND } from "@/types/brand";
+import { Contract } from "@/types/contract";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { addContract, getContracts } from "@/lib/fetch";
 
-const brandData: BRAND[] = [
-  {
-    logo: "/images/brand/brand-01.svg",
-    name: "Contract 1",
-    type: "Type 1",
-    visitors: 3.5,
-    revenues: "5,768",
-    sales: 590,
-    conversion: 4.8,
-  },
-  {
-    logo: "/images/brand/brand-02.svg",
-    name: "Contract 2",
-    type: "Type 2",
-    visitors: 2.2,
-    revenues: "4,635",
-    sales: 467,
-    conversion: 4.3,
-  },
-  {
-    logo: "/images/brand/brand-03.svg",
-    name: "Contract 3",
-    type: "Type 3",
-    visitors: 2.1,
-    revenues: "4,290",
-    sales: 420,
-    conversion: 3.7,
-  },
-  {
-    logo: "/images/brand/brand-04.svg",
-    name: "Contract 4",
-    type: "Type 4",
-    visitors: 1.5,
-    revenues: "3,580",
-    sales: 389,
-    conversion: 2.5,
-  },
-  {
-    logo: "/images/brand/brand-05.svg",
-    name: "Contract 5",
-    type: "Type 5",
-    visitors: 3.5,
-    revenues: "6,768",
-    sales: 390,
-    conversion: 4.2,
-  },
-];
+
 
 const ContractsOverview = () => {
+  const [contracts, setContracts] = useState<Contract[]>([]);
+
+  useEffect(() => {
+    const fetchContracts = async () => {
+      const loadedContracts = await getContracts();
+      setContracts(loadedContracts);
+    };
+
+    fetchContracts();
+  }, []);
+
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         All Contracts
       </h4>
+
+      {contracts.map(contract => (
+        <div key={contract.id}>
+          <h2>{contract.client_name} ({contract.business_type})</h2>
+          <p>Agreement Date: {contract.agreement_date}</p>
+          <p>Scope of Work: {contract.scope_of_work}</p>
+          <p>Price: {contract.price} {contract.currency}</p>
+          {/* Display more details as needed */}
+        </div>
+      ))}
 
       <div className="flex flex-col">
         <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
@@ -85,10 +62,10 @@ const ContractsOverview = () => {
           </div>
         </div>
 
-        {brandData.map((brand, key) => (
+        {contracts.map((contract, key) => (
           <div
             className={`grid grid-cols-3 sm:grid-cols-5 ${
-              key === brandData.length - 1
+              key === contracts.length - 1
                 ? ""
                 : "border-b border-stroke dark:border-strokedark"
             }`}
@@ -99,24 +76,24 @@ const ContractsOverview = () => {
                 <Image src={brand.logo} alt="Brand" width={48} height={48} />
               </div> */}
               <p className="hidden text-black dark:text-white sm:block">
-                {brand.name}
+                {contract.client_name}
               </p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className="text-black dark:text-white">{brand.type}</p>
+              <p className="text-black dark:text-white">{contract.business_type}</p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className="text-meta-3">${brand.revenues}</p>
+              <p className="text-meta-3">${contract.price}</p>
             </div>
 
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="text-black dark:text-white">{brand.sales}</p>
+              <p className="text-black dark:text-white">{contract.scope_of_work}</p>
             </div>
 
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="text-meta-5">{brand.conversion}%</p>
+              <p className="text-meta-5">{contract.agreement_date}</p>
             </div>
           </div>
         ))}
