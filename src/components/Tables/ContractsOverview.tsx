@@ -1,7 +1,7 @@
 import { Contract } from "@/types/contract";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { addContract, getContracts } from "@/lib/fetch";
+import { getContracts } from "@/lib/fetch";
 
 
 
@@ -29,7 +29,6 @@ const ContractsOverview = () => {
           <p>Agreement Date: {contract.agreement_date}</p>
           <p>Scope of Work: {contract.scope_of_work}</p>
           <p>Price: {contract.price} {contract.currency}</p>
-          {/* Display more details as needed */}
         </div>
       ))}
 
@@ -42,22 +41,22 @@ const ContractsOverview = () => {
           </div>
           <div className="p-2.5 text-center xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Type
+              Business Type
             </h5>
           </div>
           <div className="p-2.5 text-center xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Revenues
+              Price
             </h5>
           </div>
           <div className="hidden p-2.5 text-center sm:block xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Sales
+              Scope of Work
             </h5>
           </div>
           <div className="hidden p-2.5 text-center sm:block xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Conversion
+              Agreement Date
             </h5>
           </div>
         </div>
