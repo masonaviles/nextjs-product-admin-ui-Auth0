@@ -4,6 +4,7 @@ import StartDate from '../ContractFormFields/StartDate';
 import EndDate from '../ContractFormFields/EndDate';
 import TermsAgree from '../ContractFormFields/TermsAgree';
 import SubmitButton from '../ContractFormControls/Submit';
+import { addContract } from '@/lib/fetch';
 
 interface Step5Props {
   onBack: () => void;
@@ -18,47 +19,33 @@ const Step5 = forwardRef<HTMLDivElement, Step5Props>(({ onBack, onSubmit, update
     const [endDate, setEndDate] = useState('');
     const [termsAgree, setTermsAgree] = useState(false);
 
-    // Generic input change handler for text inputs
     const handleInputChange = (name: string, value: string) => {
-      // Update local state
       if (name === 'startDate') {
         setStartDate(value);
       } else if (name === 'endDate') {
         setEndDate(value);
       }
 
-      // Update shared form data
       updateFormData({ [name]: value });
     };
 
-    // Specific change handler for checkbox
     const handleCheckboxChange = (name: string, checked: boolean) => {
-      setTermsAgree(checked); // Update local state
-      updateFormData({ [name]: checked }); // Update shared form data
+      setTermsAgree(checked);
+      updateFormData({ [name]: checked });
     };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault(); // Prevent the default form submission behavior
-
-      // API call to submit formData
-      // try {
-      //   const response = await fetch('YOUR_API_ENDPOINT', {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(formData),
-      //   });
-
-      //   if (!response.ok) {
-      //     throw new Error('Network response was not ok');
-      //   }
-
-        // Handle successful submission here
-        // For example, you could clear the form, show a success message, or redirect the user
-        console.log('Form submitted successfully', formData);
-      // } catch (error) {
-      //   console.error('Error submitting form:', error);
-      // }
+      e.preventDefault();
+      console.log('Form submitted successfully', formData);
+      try {
+        await addContract(formData);
+        console.log('Contract added successfully');
+      } catch (error) {
+        console.error('Failed to add contract', error);
+        if (error.response) {
+          console.error('Response:', error.response.data);
+        }
+      }
     };
 
   return (
