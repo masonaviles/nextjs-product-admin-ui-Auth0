@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "This is Opal Settings page for Opal - Opal Tailwind CSS Admin Dashboard Template",
 };
 
-const Settings = () => {
+const BillingSettings = () => {
   return (
     <DefaultLayout>
       <div className="absolute top-0 left-0">
@@ -31,7 +31,7 @@ const Settings = () => {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                  Billing Information
                 </h3>
               </div>
               <div className="p-7">
@@ -332,4 +332,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default BillingSettings;
