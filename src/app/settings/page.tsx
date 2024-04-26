@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Image from "next/image";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import SettingsSidebar from "@/components/Sidebar/SettingsSidebar";
 
 export const metadata: Metadata = {
   title: "Opal Settings | Opal - Opal Dashboard Template",
@@ -13,14 +14,19 @@ const Settings = () => {
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-270">
-        <Breadcrumb pageName="Settings" />
+        <Breadcrumb pageName="Account Settings" />
 
-        {/* <div className="grid grid-cols-5 gap-8">
-          <div className="col-span-5 xl:col-span-3">
+        <div className="grid grid-cols-7 gap-8">
+
+          <div className="col-span-1 xl:col-span-2">
+            <SettingsSidebar />
+          </div>
+
+          <div className="col-span-8 xl:col-span-3">
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                  Account Information
                 </h3>
               </div>
               <div className="p-7">
@@ -135,17 +141,17 @@ const Settings = () => {
                   <div className="mb-5.5">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
-                      htmlFor="Username"
+                      htmlFor="Business Name"
                     >
-                      Username
+                      Business Name
                     </label>
                     <input
                       className="w-full rounded border border-stroke bg-gray px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                       type="text"
-                      name="Username"
-                      id="Username"
-                      placeholder="masona123"
-                      defaultValue="masona123"
+                      name="businessName"
+                      id="businessName"
+                      placeholder="Business LLC"
+                      defaultValue="Business LLC"
                     />
                   </div>
 
@@ -154,7 +160,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
-                      BIO
+                      Description
                     </label>
                     <div className="relative">
                       <span className="absolute left-4.5 top-4">
@@ -315,7 +321,7 @@ const Settings = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </DefaultLayout>
   );
