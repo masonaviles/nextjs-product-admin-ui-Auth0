@@ -87,7 +87,7 @@ const SettingsBilling = () => {
     <>
       <div className="col-span-6 xl:col-span-5">
         {creditCards.map((card, index) => (
-          <div key={index} className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mb-4">
+          <div key={index} className="rounded border-2 border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mb-4">
             <div className="flex justify-between border-b border-stroke px-7 py-4 dark:border-strokedark">
               <h3 className="font-medium text-black dark:text-white">
                 Card #{card.card_number.slice(-4)}
@@ -103,25 +103,25 @@ const SettingsBilling = () => {
           </div>
         ))}
         {editMode && (
-            <div className="fixed inset-0 overflow-y-auto h-full w-full flex items-center justify-center" id="my-modal">
+            <div className="fixed inset-0 overflow-y-auto h-full w-full flex items-start justify-start" id="my-modal">
                 <div className="bg-gray-600 bg-opacity-50 absolute inset-0"></div>
-                <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white bg-opacity-100 z-10">
+                <div className="relative top-30 mx-auto p-5 border-2 border-stroke w-96 shadow-lg rounded-md bg-white dark:bg-boxdark bg-opacity-100 dark:border-strokedark z-10">
                     <div className="mt-3 text-center">
-                        <h3 className="text-lg leading-6 font-medium text-gray-900">Edit Credit Card</h3>
+                        <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Edit Credit Card</h3>
                         <form onSubmit={handleSubmit} className="mt-2">
-                            <input type="text" name="cardholder_name" value={currentCard?.cardholder_name} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                            <input type="text" name="card_number" value={currentCard?.card_number} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                            <input type="text" name="expiry_date" value={currentCard?.expiry_date} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                            <input type="text" name="security_code" value={currentCard?.security_code} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                            <input type="text" name="card_type" value={currentCard?.card_type} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                            <input type="text" name="billing_street" value={currentCard?.billing_address.street} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="Street" />
-                            <input type="text" name="billing_city" value={currentCard?.billing_address.city} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="City" />
-                            <input type="text" name="billing_state" value={currentCard?.billing_address.state} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="State" />
-                            <input type="text" name="billing_zip_code" value={currentCard?.billing_address.zip_code} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="Zip Code" />
-                            <button type="submit" className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+                            <input type="text" name="cardholder_name" value={currentCard?.cardholder_name} onChange={handleChange} className="mb-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" />
+                            <input type="text" name="card_number" value={currentCard?.card_number} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" />
+                            <input type="text" name="expiry_date" value={currentCard?.expiry_date} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" />
+                            <input type="text" name="security_code" value={currentCard?.security_code} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" />
+                            <input type="text" name="card_type" value={currentCard?.card_type} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" />
+                            <input type="text" name="billing_street" value={currentCard?.billing_address.street} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" placeholder="Street" />
+                            <input type="text" name="billing_city" value={currentCard?.billing_address.city} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" placeholder="City" />
+                            <input type="text" name="billing_state" value={currentCard?.billing_address.state} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" placeholder="State" />
+                            <input type="text" name="billing_zip_code" value={currentCard?.billing_address.zip_code} onChange={handleChange} className="my-2 w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary" placeholder="Zip Code" />
+                            <button type="submit" className="w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
                         </form>
                     </div>
-                    <button onClick={() => setEditMode(false)} className="mt-4 bg-red-500 hover:bg-red-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
+                    <button onClick={() => setEditMode(false)} className="w-full mt-4 bg-red-500 hover:bg-red-700 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
                 </div>
             </div>
         )}
