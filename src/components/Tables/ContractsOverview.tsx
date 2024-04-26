@@ -2,6 +2,7 @@ import { Contract } from "@/types/contract";
 import { useState, useEffect } from "react";
 import { getContracts } from "@/lib/fetch";
 import Modal from "react-modal";
+import Link from "next/link";
 
 
 const ContractsOverview = () => {
@@ -89,9 +90,14 @@ const ContractsOverview = () => {
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-        All Contracts
-      </h4>
+      <div className="flex justify-between items-center mb-4">
+        <h4 className="text-xl font-semibold text-black dark:text-white">
+          All Contracts
+        </h4>
+        <Link href="/contracts/generator" className="bg-green-500 dark:bg-green-700 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          Create Contract
+        </Link>
+      </div>
 
       <div className="bg-gray-100 dark:bg-gray-800 border-b border-stroke dark:border-strokedark grid grid-cols-2 sm:grid-cols-6 font-bold p-2.5 xl:p-5">
         <div className="text-black dark:text-white text-left">Client Name</div>
@@ -99,7 +105,7 @@ const ContractsOverview = () => {
         <div className="text-black dark:text-white text-center">Price of Services</div>
         <div className="text-black dark:text-white text-center">Payment Frequency</div>
         <div className="text-black dark:text-white text-center">Start Date</div>
-        <div className="text-black dark:text-white text-center">PDF Link</div>
+        <div className="text-black dark:text-white text-center">Contract</div>
       </div>
 
       {contracts.map((contract, key) => (
