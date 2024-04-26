@@ -8,10 +8,10 @@ const SettingsSidebar = () => {
       <div className="p-7">
         <div className="">
           <ul>
-            <li>
+            <li className="text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400">
               <Link href="/settings">Account Settings</Link>
             </li>
-            <li>
+            <li className="text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400">
               <Link href="/settings/billing">Billing Settings</Link>
             </li>
           </ul>
