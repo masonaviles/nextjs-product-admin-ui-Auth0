@@ -114,7 +114,7 @@ const SettingsBilling = () => {
               </h3>
               <div>
                 <button className="mr-2 bg-blue-500 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleEdit(card)}>Edit</button>
-                <button className="bg-white hover:bg-gray-700 dark:bg-blue-800 dark:bg-opacity-90 dark:hover:bg-blue-500 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleDelete(card.card_number)}>Delete</button>
+                <button className="bg-blue-100 hover:bg-blue-800 hover:text-white dark:bg-blue-900 dark:bg-opacity-90 dark:hover:bg-blue-500 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleDelete(card.card_number)}>Delete</button>
               </div>
             </div>
             <div className="p-7">
