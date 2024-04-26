@@ -57,7 +57,7 @@ const ContractFormSteps: React.FC = () => {
   ];
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-9 justify-center items-center'>
       <ProgressBar currentStep={currentStep} totalSteps={stepComponents.length} />
       <div className='formContainer'>
         <AnimatePresence mode='wait'>
