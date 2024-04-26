@@ -41,9 +41,9 @@ const Step5 = forwardRef<HTMLDivElement, Step5Props>(({ onBack, onSubmit, update
         await addContract(formData);
         console.log('Contract added successfully');
       } catch (error) {
-        console.error('Failed to add contract', error);
-        if (error.response) {
-          console.error('Response:', error.response.data);
+        console.error('Failed to add contract', error as any);
+        if ((error as any).response) {
+          console.error('Response:', (error as any).response.data);
         }
       }
     };
