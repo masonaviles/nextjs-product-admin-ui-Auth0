@@ -1,22 +1,10 @@
 "use client";
 
+import { BillingCard } from "@/types/billingCards";
 import React, { useState } from 'react';
 
 const SettingsBilling = () => {
-    interface Card {
-        cardholder_name: string;
-        card_number: string;
-        expiry_date: string;
-        security_code: string;
-        card_type: string;
-        billing_address: {
-          street: string;
-          city: string;
-          state: string;
-          zip_code: string;
-        };
-    }
-    const [creditCards, setCreditCards] = useState<Card[]>([ 
+    const [creditCards, setCreditCards] = useState<BillingCard[]>([ 
         {
         cardholder_name: "John Doe",
         card_number: "4111111111111111",
@@ -45,9 +33,9 @@ const SettingsBilling = () => {
         }
     ]);
   const [editMode, setEditMode] = useState(false);
-  const [currentCard, setCurrentCard] = useState<Card | null>(null);
+  const [currentCard, setCurrentCard] = useState<BillingCard | null>(null);
 
-  const handleEdit = (card: Card) => {
+  const handleEdit = (card: BillingCard) => {
       setCurrentCard({...card});
       setEditMode(true);
   };
@@ -58,7 +46,7 @@ const SettingsBilling = () => {
   };
 
   const handleAddNewCard = () => {
-      const newCard: Card = {
+      const newCard: BillingCard = {
           cardholder_name: "",
           card_number: "",
           expiry_date: "",
