@@ -1,8 +1,7 @@
 import { Contract } from "@/types/contract";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getContracts } from "@/lib/fetch";
-
+import Modal from "react-modal";
 
 
 const ContractsOverview = () => {
@@ -62,6 +61,17 @@ const ContractsOverview = () => {
       pdf: "#"
     }
   ]);
+  const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const openModal = (contract: Contract) => {
+    setSelectedContract(contract);
+    setModalIsOpen(true);
+  };
 
   useEffect(() => {
     const fetchContracts = async () => {
@@ -124,10 +134,30 @@ const ContractsOverview = () => {
           </div>
 
           <div className="flex items-center justify-center p-2.5 sm:flex xl:p-5">
-            <Link href={contract.pdf} target="_blank" className="bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">View Contract</Link>
+            <button onClick={() => openModal(contract)} className="bg-blue-500 dark:bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              View Contract
+            </button>
           </div>
         </div>
       ))}
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Contract Modal"
+        ariaHideApp={false}
+        className="fixed lg:inset-x-30 overflow-y-auto h-full w-full flex items-start justify-start"
+        style={{
+          content: {
+
+          }
+        }}
+      >
+        <div className="relative top-30 mx-auto p-5 border-2 border-stroke w-2/3 shadow-lg rounded-md bg-white dark:bg-boxdark bg-opacity-100 dark:border-strokedark z-10">
+          <button onClick={closeModal} className="absolute top-0 right-0 text-black dark:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
+          <h1 className="contract-title">Agency Service Agreement</h1>
+        </div>
+      </Modal>
     </div>
   );
 };
