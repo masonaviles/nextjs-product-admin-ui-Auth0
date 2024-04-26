@@ -2,7 +2,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import SettingsSidebar from "@/components/Sidebar/SettingsSidebar";
-import SettingsBilling from "@/components/Tables/Settings_Billing";
+import SettingsBilling from "@/components/Tables/SettingsBilling";
 
 export const metadata: Metadata = {
   title: "Opal Settings | Opal - Opal Dashboard Template",

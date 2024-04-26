@@ -52,6 +52,11 @@ const SettingsBilling = () => {
     setEditMode(true);
   };
 
+  const handleDelete = (cardNumber: string) => {
+    const updatedCards = creditCards.filter(card => card.card_number !== cardNumber);
+    setCreditCards(updatedCards);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name.startsWith('billing_')) {
@@ -68,12 +73,12 @@ const SettingsBilling = () => {
         };
       });
     } else {
-        setCurrentCard(prev => {
-          if (!prev) return null;
-          return { ...prev, [name]: value };
-        });
-      }
-    };
+      setCurrentCard(prev => {
+        if (!prev) return null;
+        return { ...prev, [name]: value };
+      });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -92,7 +97,10 @@ const SettingsBilling = () => {
               <h3 className="font-medium text-black dark:text-white">
                 Card #{card.card_number.slice(-4)}
               </h3>
-              <button onClick={() => handleEdit(card)}>Edit</button>
+              <div>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleEdit(card)}>Edit</button>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleDelete(card.card_number)}>Delete</button>
+              </div>
             </div>
             <div className="p-7">
               <p>Cardholder Name: {card.cardholder_name}</p>
