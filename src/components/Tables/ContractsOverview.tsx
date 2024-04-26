@@ -65,6 +65,10 @@ const ContractsOverview = () => {
   const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const handleDelete = (contractId: number) => {
+    setContracts(contracts.filter(contract => contract.id !== contractId));
+  };
+
   const closeModal = () => {
     setModalIsOpen(false);
   };
@@ -139,10 +143,11 @@ const ContractsOverview = () => {
             <p className="text-meta-5">{contract.start_date}</p>
           </div>
 
-          <div className="flex items-center justify-center p-2.5 sm:flex xl:p-5">
+          <div className="flex items-center justify-between p-2.5 sm:flex xl:p-5">
             <button onClick={() => openModal(contract)} className="bg-blue-500 dark:bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              View Contract
+              View
             </button>
+            <button className="rounded border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:hover:text-black hover:bg-gray-300 dark:border-strokedark dark:text-white" onClick={() => handleDelete(contract.id)}>Delete</button>
           </div>
         </div>
       ))}
