@@ -12,11 +12,12 @@ export interface Contract {
   start_date: string;
   end_date: string;
   user_id?: BigInt;
-  terms_agree: string;
+  terms_agree: boolean;
   price_of_services: string;
   csrfmiddlewaretoken: string;
   send_date: string;
   client_signatory_name: string;
   client_signatory_role: string;
+  pdf: string;
 }
 
