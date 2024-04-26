@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const Settings = () => {
   return (
     <DefaultLayout>
-      <div className="mx-auto max-w-270">
+      <div className="mx-auto w-full max-w-1000">
         <Breadcrumb pageName="Account Settings" />
 
         <div className="grid grid-cols-7 gap-8">

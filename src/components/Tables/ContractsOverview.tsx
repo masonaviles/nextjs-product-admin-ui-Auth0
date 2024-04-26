@@ -1,72 +1,17 @@
 import { Contract } from "@/types/contract";
 import { useState, useEffect } from "react";
-import { getContracts } from "@/lib/fetch";
 import Modal from "react-modal";
 import Link from "next/link";
+import { useContracts } from "@/context/ContractContext";
 
 
 const ContractsOverview = () => {
-  const [contracts, setContracts] = useState<Contract[]>([
-    {
-      id: 1,
-      csrfmiddlewaretoken: "Nj9QQXHyfh0V4qZTuW5yrpuQxPsjeGMGYli0Y0prlAv3MaRAj25BXTLeRvHz8Yvi",
-      send_date: "2024-10-01",
-      client_name: "Client Name 1",
-      client_address: "NV",
-      client_signatory_name: "Sig Name",
-      client_signatory_role: "Sig Role",
-      scope_of_work: "Scope of Work",
-      business_type: "Large Company",
-      price_of_services: "100000",
-      currency: "USD",
-      start_date: "2024-10-02",
-      end_date: "2024-10-28",
-      terms_agree: true,
-      payment_frequency: "Bi-Weekly",
-      pdf: "#"
-    },
-    {
-      id: 2,
-      csrfmiddlewaretoken: "Nj9QQXHyfh0V4qZTuW5yrpuQxPsjeGMGYli0Y0prlAv3MaRAj25BXTLeRvHz8Yvi",
-      send_date: "2024-10-01",
-      client_name: "Client Name 2",
-      client_address: "NV",
-      client_signatory_name: "Sig Name",
-      client_signatory_role: "Sig Role",
-      scope_of_work: "Scope of Work",
-      business_type: "Small Company",
-      price_of_services: "30000",
-      currency: "USD",
-      start_date: "2024-10-05",
-      end_date: "2024-10-28",
-      terms_agree: true,
-      payment_frequency: "Monthly",
-      pdf: "#"
-    },
-    {
-      id: 3,
-      csrfmiddlewaretoken: "Nj9QQXHyfh0V4qZTuW5yrpuQxPsjeGMGYli0Y0prlAv3MaRAj25BXTLeRvHz8Yvi",
-      send_date: "2024-10-01",
-      client_name: "Client Name 3",
-      client_address: "NV",
-      client_signatory_name: "Sig Name",
-      client_signatory_role: "Sig Role",
-      scope_of_work: "Scope of Work",
-      business_type: "Small Company",
-      price_of_services: "80000",
-      currency: "USD",
-      start_date: "2024-10-11",
-      end_date: "2024-10-28",
-      terms_agree: true,
-      payment_frequency: "Weekly",
-      pdf: "#"
-    }
-  ]);
+  const { contracts, addContract, deleteContract } = useContracts();
   const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleDelete = (contractId: number) => {
-    setContracts(contracts.filter(contract => contract.id !== contractId));
+    deleteContract(contractId);
   };
 
   const closeModal = () => {
@@ -77,20 +22,6 @@ const ContractsOverview = () => {
     setSelectedContract(contract);
     setModalIsOpen(true);
   };
-
-  useEffect(() => {
-    const fetchContracts = async () => {
-      try {
-        const loadedContracts = await getContracts();
-        if (loadedContracts && loadedContracts.length > 0) {
-          setContracts(loadedContracts);
-        }
-      } catch (error) {
-        console.error("Failed to fetch contracts:", error);      }
-    };
-  
-    fetchContracts();
-  }, []);
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
