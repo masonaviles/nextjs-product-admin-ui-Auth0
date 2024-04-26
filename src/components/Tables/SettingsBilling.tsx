@@ -48,49 +48,64 @@ const SettingsBilling = () => {
   const [currentCard, setCurrentCard] = useState<Card | null>(null);
 
   const handleEdit = (card: Card) => {
-    setCurrentCard({...card});
-    setEditMode(true);
+      setCurrentCard({...card});
+      setEditMode(true);
   };
 
   const handleDelete = (cardNumber: string) => {
-    const updatedCards = creditCards.filter(card => card.card_number !== cardNumber);
-    setCreditCards(updatedCards);
+      const updatedCards = creditCards.filter(card => card.card_number !== cardNumber);
+      setCreditCards(updatedCards);
+  };
+
+  const handleAddNewCard = () => {
+      const newCard: Card = {
+          cardholder_name: "",
+          card_number: "",
+          expiry_date: "",
+          security_code: "",
+          card_type: "",
+          billing_address: {
+              street: "",
+              city: "",
+              state: "",
+              zip_code: ""
+          }
+      };
+      setCurrentCard(newCard);
+      setEditMode(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    if (name.startsWith('billing_')) {
-      const field = name.split('_')[1];
+      const { name, value } = e.target;
       setCurrentCard(prev => {
-        if (!prev) return null;
-        const field = name.split('_')[1];
-        return {
-          ...prev,
-          billing_address: {
-            ...prev.billing_address,
-            [field]: value
+          if (!prev) return null;
+          if (name.startsWith('billing_')) {
+              const field = name.split('_')[1];
+              return {
+                  ...prev,
+                  billing_address: {
+                      ...prev.billing_address,
+                      [field]: value
+                  }
+              };
+          } else {
+              return { ...prev, [name]: value };
           }
-        };
       });
-    } else {
-      setCurrentCard(prev => {
-        if (!prev) return null;
-        return { ...prev, [name]: value };
-      });
-    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!currentCard) return;
-    const updatedCards = creditCards.map(card => card.card_number === currentCard.card_number ? currentCard : card);
-    setCreditCards(updatedCards);
-    setEditMode(false);
+      e.preventDefault();
+      if (!currentCard) return;
+      const updatedCards = currentCard.card_number ? creditCards.map(card => card.card_number === currentCard.card_number ? currentCard : card) : [...creditCards, currentCard];
+      setCreditCards(updatedCards);
+      setEditMode(false);
   };
 
   return (
     <>
       <div className="col-span-6 xl:col-span-5">
+        <button className="mb-4 bg-green-500 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleAddNewCard}>Add New Card</button>
         {creditCards.map((card, index) => (
           <div key={index} className="rounded border-2 border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mb-4">
             <div className="flex justify-between border-b border-stroke px-7 py-4 dark:border-strokedark">
@@ -98,8 +113,8 @@ const SettingsBilling = () => {
                 Card #{card.card_number.slice(-4)}
               </h3>
               <div>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleEdit(card)}>Edit</button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleDelete(card.card_number)}>Delete</button>
+                <button className="mr-2 bg-blue-500 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleEdit(card)}>Edit</button>
+                <button className="bg-white hover:bg-gray-700 dark:bg-blue-800 dark:bg-opacity-90 dark:hover:bg-blue-500 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleDelete(card.card_number)}>Delete</button>
               </div>
             </div>
             <div className="p-7">
