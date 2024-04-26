@@ -103,26 +103,27 @@ const SettingsBilling = () => {
           </div>
         ))}
         {editMode && (
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
-            <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-              <div className="mt-3 text-center">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">Edit Credit Card</h3>
-                <form onSubmit={handleSubmit} className="mt-2">
-                  <input type="text" name="cardholder_name" value={currentCard?.cardholder_name} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                  <input type="text" name="card_number" value={currentCard?.card_number} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                  <input type="text" name="expiry_date" value={currentCard?.expiry_date} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                  <input type="text" name="security_code" value={currentCard?.security_code} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                  <input type="text" name="card_type" value={currentCard?.card_type} onChange={handleChange} className="mt-2 p-2 border rounded" />
-                  <input type="text" name="billing_street" value={currentCard?.billing_address.street} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="Street" />
-                  <input type="text" name="billing_city" value={currentCard?.billing_address.city} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="City" />
-                  <input type="text" name="billing_state" value={currentCard?.billing_address.state} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="State" />
-                  <input type="text" name="billing_zip_code" value={currentCard?.billing_address.zip_code} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="Zip Code" />
-                  <button type="submit" className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
-                </form>
-              </div>
-              <button onClick={() => setEditMode(false)} className="mt-4 bg-red-500 hover:bg-red-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
+            <div className="fixed inset-0 overflow-y-auto h-full w-full flex items-center justify-center" id="my-modal">
+                <div className="bg-gray-600 bg-opacity-50 absolute inset-0"></div>
+                <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white bg-opacity-100 z-10">
+                    <div className="mt-3 text-center">
+                        <h3 className="text-lg leading-6 font-medium text-gray-900">Edit Credit Card</h3>
+                        <form onSubmit={handleSubmit} className="mt-2">
+                            <input type="text" name="cardholder_name" value={currentCard?.cardholder_name} onChange={handleChange} className="mt-2 p-2 border rounded" />
+                            <input type="text" name="card_number" value={currentCard?.card_number} onChange={handleChange} className="mt-2 p-2 border rounded" />
+                            <input type="text" name="expiry_date" value={currentCard?.expiry_date} onChange={handleChange} className="mt-2 p-2 border rounded" />
+                            <input type="text" name="security_code" value={currentCard?.security_code} onChange={handleChange} className="mt-2 p-2 border rounded" />
+                            <input type="text" name="card_type" value={currentCard?.card_type} onChange={handleChange} className="mt-2 p-2 border rounded" />
+                            <input type="text" name="billing_street" value={currentCard?.billing_address.street} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="Street" />
+                            <input type="text" name="billing_city" value={currentCard?.billing_address.city} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="City" />
+                            <input type="text" name="billing_state" value={currentCard?.billing_address.state} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="State" />
+                            <input type="text" name="billing_zip_code" value={currentCard?.billing_address.zip_code} onChange={handleChange} className="mt-2 p-2 border rounded" placeholder="Zip Code" />
+                            <button type="submit" className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+                        </form>
+                    </div>
+                    <button onClick={() => setEditMode(false)} className="mt-4 bg-red-500 hover:bg-red-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
+                </div>
             </div>
-          </div>
         )}
       </div>
     </>
