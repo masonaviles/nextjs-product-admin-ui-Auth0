@@ -88,7 +88,7 @@ const ContractsOverview = () => {
         onRequestClose={closeModal}
         contentLabel="Contract Modal"
         ariaHideApp={false}
-        className="fixed lg:inset-x-30 overflow-y-auto h-full w-full flex items-start justify-start"
+        className="fixed lg:inset-x-30 overflow-y-auto h-full w-full flex items-start justify-start dark:bg-black dark:bg-opacity-80"
         style={{
           content: {
 
@@ -96,8 +96,8 @@ const ContractsOverview = () => {
         }}
       >
         <div className="relative top-30 mx-auto p-5 border-2 border-stroke w-2/3 shadow-lg rounded-md bg-white dark:bg-boxdark bg-opacity-100 dark:border-strokedark z-10">
-          <button onClick={closeModal} className="absolute top-0 right-0 text-black dark:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
-          <h1 className="contract-title">Contract {selectedContract?.id} for {selectedContract?.client_name}</h1>
+          <button onClick={closeModal} className="absolute top-0 right-2 text-black dark:text-gray-300 p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
+          <h1 className="contract-title dark:text-white">Contract {selectedContract?.id} for {selectedContract?.client_name}</h1>
         </div>
       </Modal>
     </div>
