@@ -104,8 +104,8 @@ const SettingsBilling = () => {
 
   return (
     <>
-      <div className="col-span-6 xl:col-span-5">
-        <button className="mb-4 bg-green-500 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleAddNewCard}>Add New Card</button>
+      <div className="col-span-6 xl:col-span-5 flex justify-end flex-col gap-2">
+        <button className="w-1/12 mb-4 bg-green-500 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleAddNewCard}>+</button>
         {creditCards.map((card, index) => (
           <div key={index} className="rounded border-2 border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mb-4">
             <div className="flex justify-between border-b border-stroke px-7 py-4 dark:border-strokedark">
@@ -114,7 +114,7 @@ const SettingsBilling = () => {
               </h3>
               <div>
                 <button className="mr-2 bg-blue-500 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleEdit(card)}>Edit</button>
-                <button className="bg-blue-100 hover:bg-blue-800 hover:text-white dark:bg-blue-900 dark:bg-opacity-90 dark:hover:bg-blue-500 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => handleDelete(card.card_number)}>Delete</button>
+                <button className="rounded border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 hover:bg-gray-300 dark:border-strokedark dark:text-white" onClick={() => handleDelete(card.card_number)}>Delete</button>
               </div>
             </div>
             <div className="p-7">
